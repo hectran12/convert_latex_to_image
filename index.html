@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Convert latex to image</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">L2Image</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="https://www.facebook.com/thehex101">Facebook</a>
+            <a class="nav-link" href="https://www.youtube.com/channel/UC5XcSW8q-8zBZGFeUSOa2xQ">Youtube</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <form method="POST" action="./convert"> <h1 class="cover-heading">Enter the latex you want to convert to an image</h1>
+            <p class="lead"><div class="form-outline">
+                <textarea class="form-control" name="content" rows="4" placeholder="Enter here"></textarea><br>
+                <h6>Edit background with css</h6>
+                <textarea class="form-control" name="css_style" id="css_style" rows="15" placeholder="Enter here"></textarea>
+              </div></p>
+            <p class="lead">
+              <button type="submit" class="btn btn-lg btn-secondary">Conversions</button>
+            </p></form>
+            this_download_is_now
+      </main>
+  
+      <br><br><!--written by thehex100 , theme by mdo--> <!--credit ... --><br><br>
+    </div>
+
+    <script type="text/javascript">
+      const dom = document.getElementById("css_style");
+      dom.value = `
+      body {
+                height: max-content;
+                font-size: 40px;
+                width: 700px;
+                background-color: white;
+
+            }
+
+            h1 {
+                margin: 0;
+                padding: 0;
+            }
+      `;
+      async function downloadImage(imageSrc) {
+  const image = await fetch(imageSrc)
+  const imageBlog = await image.blob()
+  const imageURL = URL.createObjectURL(imageBlog)
+
+  const link = document.createElement('a')
+  link.href = imageURL
+  link.download = 'download.png'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script src="https://getbootstrap.com/docs/5.0/assets/js/docs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</scrip>
+  </body>
+</html>
